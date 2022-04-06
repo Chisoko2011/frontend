@@ -12,7 +12,7 @@ export class LoginService {
 login(username: string, userPassword: string) {
   console.log(username, userPassword)
   return this.http.get('http://localhost:3600/login?userfirstname='+ username + '&userpassword=' + userPassword);
-  // return this.http.get(this.configUrl);
+  
 }
 
 
