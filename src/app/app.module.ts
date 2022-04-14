@@ -9,14 +9,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 import { LoginComponent } from './components/login/login.component';
 import { OrdersListComponent } from './components/orders-list/orders-list.component';
-import { HcaComponent } from './components/hca/hca.component';
+import { hcaComponent } from './components/hca/hca.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     OrdersListComponent,
-    HcaComponent
+    hcaComponent,
+    RegisterComponent,
+    NavigationBarComponent
   
   ],
   imports: [

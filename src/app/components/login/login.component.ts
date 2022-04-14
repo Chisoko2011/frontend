@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   this.loginService.login(this.userName, this.userPassword)
   .subscribe((data: any) => {
     if (data.login === true) {
+      this.loginService.username = this.userName;
       if (data.role === 'radiographer') {
         this.router.navigate(['orderList']);
       } else if (data.role === 'hca') {
