@@ -1,0 +1,17 @@
+<div>
+    <h4>Patient's Details:</h4>
+        <p>MRN: {{patientData.patient_mrn}}</p>
+        <p>First Name: {{patientData.firstname}}</p>
+        <p>Last Name: {{patientData.firstname}}</p>
+        
+        <p>Exam: {{patientData.exam}}</p>
+        <p>Ward Location: {{patientData.ward_location}}</p>
+
+        <label>Assign HCA</label>
+            <select [(ngModel)]="selected_hca" class="custom-select">
+                <option selected disabled>Select HCA</option>
+                <option value='{{hca.id}}' *ngFor="let hca of loggedInHcas">{{hca.firstname}}({{hca.id}})</option>
+              </select>
+              <button type="button" class="btn btn-primary" (click)="assignHca()">Assign HCA</button>
+          
+</div>

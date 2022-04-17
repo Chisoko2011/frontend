@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrdersListService } from '../../../app/services/orders-list.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class OrdersListComponent implements OnInit {
 
   rows = [];
 
-  constructor(private ordersListService: OrdersListService) { }
+  constructor(private ordersListService: OrdersListService, private router: Router) { }
 
   ngOnInit(): void {
     this.ordersListService.fetchOrders()
@@ -29,6 +30,14 @@ export class OrdersListComponent implements OnInit {
     });
   }
 
+  assignHca(patient: any) {
+    let navigationExtras = {
+      state: {
+        patient: patient
+      }
+    }
+    this.router.navigate(['/hca_assign'], navigationExtras);
+  }
 
 
 }

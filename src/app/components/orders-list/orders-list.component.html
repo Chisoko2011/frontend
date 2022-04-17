@@ -1,5 +1,8 @@
+
+
 <app-navigation-bar></app-navigation-bar>
 
+<h4>Available X-ray Orders for In-Patients</h4>
 
 <table class="table table-bordered">
     <thead>
@@ -10,9 +13,18 @@
     <tbody>
       <tr *ngFor="let order of rows">
         <td *ngFor="let column of columns">
-          {{order[column.id]}}
+          <div *ngIf="column.id === 'hca_assigned' && !order[column.id]">
+            <button type="button" class="btn btn-primary" (click)="assignHca(order)">Assign HCA</button>
+          </div>
+          <div *ngIf="column.id === 'hca_assigned' && order[column.id] !== null">
+            {{order[column.id]}}
+          </div>
+          <div *ngIf="column.id !== 'hca_assigned'">
+            {{order[column.id]}}
+          </div>
         </td>
       </tr>
     </tbody>
   </table>
 
+<app-hca-log></app-hca-log>
