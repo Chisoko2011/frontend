@@ -5,13 +5,15 @@ import { LoginComponent } from './components/login/login.component';
 import { hcaComponent } from './components/hca/hca.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HcaAssignedComponent } from './components/hca-assigned/hca-assigned.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 const routes: Routes = [
   { path: 'orderList', component: OrdersListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'hca', component: hcaComponent },
   {path: 'register', component: RegisterComponent },
-  {path: 'hca_assign', component: HcaAssignedComponent, data :{} }
+  {path: 'hca_assign', component: HcaAssignedComponent, data :{} },
+  {path: 'add_order', component: AddOrderComponent }
 ];
 
 @NgModule({

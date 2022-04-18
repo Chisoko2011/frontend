@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 import { hcaService } from 'src/app/services/hca.service';
 
 @Component({
@@ -18,8 +19,17 @@ export class HcaLogComponent implements OnInit {
     {id: 'email', name: 'Email'}
   ]
 rows = [];
+updateSubscription: Subscription | undefined;
 
   ngOnInit(): void {
+    this.fetchData();
+    this.updateSubscription = interval(60000).subscribe(
+      (val) => { 
+        this.fetchData();
+    })
+  }
+
+  fetchData() {
     this.Service.fetchHcaLoggedin()
     .subscribe((data: any) => {
       this.rows = data;

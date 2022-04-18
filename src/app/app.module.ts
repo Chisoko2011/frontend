@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { HcaLogComponent } from './components/hca-log/hca-log.component';
 import { HcaAssignedComponent } from './components/hca-assigned/hca-assigned.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HcaAssignedComponent } from './components/hca-assigned/hca-assigned.com
     RegisterComponent,
     NavigationBarComponent,
     HcaLogComponent,
-    HcaAssignedComponent
+    HcaAssignedComponent,
+    AddOrderComponent
   
   ],
   imports: [
