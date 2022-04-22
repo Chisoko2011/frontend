@@ -13,10 +13,11 @@ export class hcaComponent implements OnInit {
     { id: 'firstname', name: 'First Name' },
     { id: 'lastname', name: 'Last Name' },
     { id: 'ward_location', name: 'Ward' },
+    { id: 'exam', name: 'Exam' },
     { id: 'hca_assigned', name: 'HCA Assigned' },
-    { id: 'date_time_accepted', name: 'Date/Time Accepted' },
-    { id: 'mode_of_transport', name: 'Mode_of_Transport' },
-    { id: 'constraints', name: 'Constraints' },
+    { id: 'started_at', name: 'Date/Time Started' },
+    { id: 'arrived_at', name: 'Date/Time Arrived' },
+    { id: 'reasons', name: 'Reasons' },
   ];
 
   rows = [];
@@ -24,7 +25,7 @@ export class hcaComponent implements OnInit {
   constructor(private hcaService: OrdersListService) { }
 
   ngOnInit(): void {
-    this.hcaService.fetchOrders()
+    this.hcaService.fetchOrdersHca()
       .subscribe((data: any) => {
         this.rows = data;
       });

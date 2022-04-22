@@ -18,7 +18,10 @@ export class OrdersListComponent implements OnInit {
     {id: 'exam', name: 'Examination'},
     {id: 'ordered_at', name: 'Time Ordered'},
     {id: 'hca_assigned', name: 'HCA'},
-    {id: 'order_status', name: 'Order Status'}
+    {id: 'order_status', name: 'Order Status'},
+    { id: 'started_at', name: 'Date/Time Started' },
+    { id: 'arrived_at', name: 'Date/Time Arrived' },
+    { id: 'reasons', name: 'Reasons' }
   ]
 
   rows = [];

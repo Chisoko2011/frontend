@@ -15,7 +15,7 @@ export class NavigationBarComponent implements OnInit {
   }
 
   buttonLogout() {
-    this.loginService.logout(this.loginService.username)
+    this.loginService.logout()
     .subscribe((data: any) => {
       if (data.logout === true) {
         this.router.navigate(['login']);                            

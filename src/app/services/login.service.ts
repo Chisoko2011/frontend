@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  username = '';
+  user_id = '';
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +17,8 @@ login(username: string, userPassword: string) {
   
 }
 
-logout(username: string) {
-  return this.http.get('http://localhost:3600/logout?email='+ username);
+logout() {
+  return this.http.get('http://localhost:3600/logout?id='+ this.user_id);
 }
 
 

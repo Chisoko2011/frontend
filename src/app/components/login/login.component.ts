@@ -18,11 +18,10 @@ export class LoginComponent implements OnInit {
 
   
  buttonClick () {
-   console.log(this.userName, this.userPassword)
   this.loginService.login(this.userName, this.userPassword)
   .subscribe((data: any) => {
     if (data.login === true) {
-      this.loginService.username = this.userName;
+      this.loginService.user_id = data.user_id;
       if (data.role === 'radiographer') {
         this.router.navigate(['orderList']);
       } else if (data.role === 'hca') {
