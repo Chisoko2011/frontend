@@ -22,7 +22,10 @@ export class HcaAssignedComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loggedInHcas = this.service.loggedInHcas
+    this.service.fetchAvailableHcas()
+    .subscribe((data: any) => {
+      this.loggedInHcas = data;
+    });
   }
 
   assignHca() {

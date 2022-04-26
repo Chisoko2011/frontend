@@ -22,4 +22,8 @@ export class hcaService {
     return this.http.get('http://localhost:3600/hca-assign?hca_id='+hca_id+'&mrn='+mrn);
   }
 
+  fetchAvailableHcas() {
+    return this.http.get('http://localhost:3600/hca_available');
+  }
+
 }

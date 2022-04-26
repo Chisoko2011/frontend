@@ -10,7 +10,7 @@
         <label>Assign HCA</label>
             <select [(ngModel)]="selected_hca" class="custom-select">
                 <option selected disabled>Select HCA</option>
-                <option value='{{hca.id}}' *ngFor="let hca of loggedInHcas">{{hca.firstname}}({{hca.id}})</option>
+                <option value='{{hca.user_id}}' *ngFor="let hca of loggedInHcas">{{hca.name}}({{hca.user_id}})</option>
               </select>
               <button type="button" class="btn btn-primary" (click)="assignHca()">Assign HCA</button>
           
