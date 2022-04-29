@@ -8,6 +8,7 @@ import { HcaAssignedComponent } from './components/hca-assigned/hca-assigned.com
 import { AddOrderComponent } from './components/add-order/add-order.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'orderList', component: OrdersListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'hca', component: hcaComponent },

@@ -1,33 +1,35 @@
-
-<div id="login-form" class="center">
+<div id="add-order-form" class="center">
     <form>
         <div class="form-group">
             <label for="mrn">MRN</label>
-            <input type="text"  [(ngModel)]="mrn" name="mrn" class="form-control" id="mrn"
-                placeholder="Enter mrn">
+            <input type="text" [(ngModel)]="mrn" name="mrn" class="form-control" id="mrn" placeholder="Enter mrn">
         </div>
         <div class="form-group">
-            <label for="firstname">First  Name</label>
-            <input type="text"  [(ngModel)]="firstName" name="firstname" class="form-control" id="firstname"
+            <label for="firstname">First Name</label>
+            <input type="text" [(ngModel)]="firstName" name="firstname" class="form-control" id="firstname"
                 placeholder="Enter First Name">
         </div>
 
         <div class="form-group">
-            <label for="lastname">Last  Name</label>
-            <input type="text"  [(ngModel)]="lastName" name="lastname" class="form-control" id="lastname"
+            <label for="lastname">Last Name</label>
+            <input type="text" [(ngModel)]="lastName" name="lastname" class="form-control" id="lastname"
                 placeholder="Enter Last Name">
         </div>
 
         <div class="form-group">
             <label for="ward_location">Ward Location</label>
-            <input type="text" [(ngModel)]="ward_location" name="ward_location" class="form-control" id="ward_location"
-                placeholder="Enter ward location">
+            <select [(ngModel)]="ward_location" class="custom-select form-control" id="ward_location" name="ward_location">
+                <option selected disabled>Select Ward</option>
+                <option value='{{ward.id}}' *ngFor="let ward of wards_list">{{ward.name}}</option>
+            </select>
         </div>
 
         <div class="form-group">
             <label for="exam">Exam </label>
-            <input type="text" [(ngModel)]="exam"  name="exam" class="form-control" id="exam"
-                placeholder=" Enter exam">
+            <select [(ngModel)]="exam" class="custom-select form-control" id="exam" name="exam">
+                <option selected disabled>Select Exam</option>
+                <option value='{{exam.id}}' *ngFor="let exam of exams_list">{{exam.name}}</option>
+            </select>
         </div>
 
 

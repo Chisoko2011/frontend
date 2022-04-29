@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ExamService } from 'src/app/services/exam.service';
 import { OrdersListService } from 'src/app/services/orders-list.service';
+import { WardsService } from 'src/app/services/wards.service';
 
 @Component({
   selector: 'app-add-order',
@@ -13,10 +15,21 @@ export class AddOrderComponent implements OnInit {
   mrn: any;
   ward_location: any;
   exam: any;
+  exams_list: any;
+  wards_list: any;
 
-  constructor(private service: OrdersListService) { }
+  constructor(private service: OrdersListService, private examsService: ExamService, private wardsServicer: WardsService) { }
 
   ngOnInit(): void {
+    this.examsService.fetchExams()
+    .subscribe((data: any) => {
+      this.exams_list = data;
+    });
+
+    this.wardsServicer.fetchWards()
+    .subscribe((data: any) => {
+      this.wards_list = data;
+    });
   }
 
   addOrder() {

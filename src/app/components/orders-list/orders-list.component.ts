@@ -56,5 +56,12 @@ export class OrdersListComponent implements OnInit {
     this.router.navigate(['/hca_assign'], navigationExtras);
   }
 
+  markAsArrived(mrn: any) {
+    this.ordersListService.markAsArrived(mrn)
+    .subscribe(() => {
+      this.fetchData();
+    });
+  }
+
 
 }

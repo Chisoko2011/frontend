@@ -23,4 +23,8 @@ export class OrdersListService {
     return this.http.get('http://localhost:3600/add_order?mrn='+mrn+'&firstName='+firstName+'&lastName='+lastName+'&ward='+ward_location+'&exam='+exam);
   }
 
+  markAsArrived(mrn: any) {
+    return this.http.get('http://localhost:3600/order_mark_arrived?mrn='+mrn);
+  }
+
 }

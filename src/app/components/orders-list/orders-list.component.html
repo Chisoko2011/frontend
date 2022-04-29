@@ -19,6 +19,15 @@
           <div *ngIf="column.id === 'hca_assigned' && order[column.id] !== null">
             {{order[column.id]}}
           </div>
+
+          <div *ngIf="column.id === 'arrived_at' && order['started_at'] && !order['arrived_at']">
+            <button type="button" class="btn btn-primary" (click)="markAsArrived(order['patient_mrn'])">Mark as Arrived</button>
+          </div>
+          
+          <div *ngIf="column.id === 'arrived_at' && order['arrived_at']">
+            {{order[column.id]}}
+          </div>
+
           <div *ngIf="column.id !== 'hca_assigned'">
             {{order[column.id]}}
           </div>

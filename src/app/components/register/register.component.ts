@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   password = '';
   email = '';
   contact_number = '';
-  role = '';
+  role: any;
 
 
   constructor(private registerService: RegisterService, private router: Router) { }
@@ -25,7 +25,6 @@ export class RegisterComponent implements OnInit {
   }
 
   registerClick() {
-    console.log(this.role)
     this.registerService.register(this.firstName, this.lastName, this.email, this.contact_number, this.role, this.password)
     .subscribe((data: any) => {
       if (data.register === true) {
