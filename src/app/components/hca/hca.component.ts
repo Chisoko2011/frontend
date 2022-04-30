@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReasonService } from 'src/app/services/reason.service';
 import { OrdersListService } from '../../../app/services/orders-list.service';
 
 @Component({
@@ -17,18 +18,32 @@ export class hcaComponent implements OnInit {
     { id: 'hca_assigned', name: 'HCA Assigned' },
     { id: 'started_at', name: 'Date/Time Started' },
     { id: 'arrived_at', name: 'Date/Time Arrived' },
-    { id: 'reasons', name: 'Reasons' },
+    { id: 'reason', name: 'Reasons' },
   ];
 
   rows = [];
+  reason_id: any;
+  reasons: any;
 
-  constructor(private hcaService: OrdersListService) { }
+  constructor(private hcaService: OrdersListService, private reasonService: ReasonService) { }
 
   ngOnInit(): void {
     this.hcaService.fetchOrdersHca()
       .subscribe((data: any) => {
         this.rows = data;
       });
+
+    this.reasonService.fetchReasons()
+    .subscribe((data: any) => {
+      this.reasons = data;
+    });
+  }
+
+  submitReason(mrn: any) {
+    this.reasonService.submitReason(mrn, this.reason_id)
+    .subscribe((data: any) => {
+      this.ngOnInit();
+    });
   }
 
 }

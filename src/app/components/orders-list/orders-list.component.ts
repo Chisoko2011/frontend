@@ -21,7 +21,7 @@ export class OrdersListComponent implements OnInit {
     {id: 'order_status', name: 'Order Status'},
     { id: 'started_at', name: 'Date/Time Started' },
     { id: 'arrived_at', name: 'Date/Time Arrived' },
-    { id: 'reasons', name: 'Reasons' }
+    { id: 'reason', name: 'Reasons' }
   ]
 
   rows = [];

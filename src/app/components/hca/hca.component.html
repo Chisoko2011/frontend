@@ -8,7 +8,20 @@
     <tbody>
       <tr *ngFor="let order of rows">
         <td *ngFor="let column of columns">
-          {{order[column.id]}}
+          <div *ngIf="column.id === 'reason' && order['reason']==='No Reason'">
+            <label for="ward_location">Select Reason</label>
+            <select [(ngModel)]="reason_id" class="custom-select form-control" id="reason_id" name="reason_id">
+                <option selected disabled>Select Reason</option>
+                <option value='{{reason.id}}' *ngFor="let reason of reasons">{{reason.text}}</option>
+            </select>
+            <button type="button" class="btn btn-primary" (click)="submitReason(order['patient_mrn'])">Submit</button>
+          </div>
+          <div *ngIf="column.id === 'reason' && order['reason'] !== 'No Reason'">
+            {{order[column.id]}}
+          </div>
+          <div *ngIf="column.id !== 'reason'">
+            {{order[column.id]}}
+          </div>
         </td>
       </tr>
     </tbody>
